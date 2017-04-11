@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package driversim;
+package driversimulator;
 
 /**
  *
  * @author taitjc1
  */
-public class DriverSim {
+public class DriverSimulator {
 
     /**
      * @param args the command line arguments
