@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package driversimulator;
+import java.util.Random;
 
 /**
  *
@@ -16,7 +17,11 @@ public class DriverSimulator {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Random generator = new Random(6336);
+        //double random = generator.nextDouble();
+       
         Location[] locations = new Location[4];
+        
         locations[0] = new Location("Mayfair", 3, 1);
         locations[1] = new Location("Akina", 0, 2);
         locations[2] = new Location("Stortford Lodge", 1, 3);
@@ -27,7 +32,7 @@ public class DriverSimulator {
             Location startingPlace = locations[0];//need to randomize
             Driver zoom = new Driver(name, startingPlace);
             while (zoom.inHastings() == true) {
-                zoom.chooseDirection(randomNumber, locations);
+                zoom.chooseDirection(generator.nextDouble(), locations);
 
             }
         }
