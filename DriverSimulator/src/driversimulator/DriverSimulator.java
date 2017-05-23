@@ -19,6 +19,7 @@ public class DriverSimulator {
         // TODO code application logic here
         Random generator = new Random(6336);
         //double random = generator.nextDouble();
+        System.out.println(generator.nextDouble());
        
         Location[] locations = new Location[4];
         
@@ -29,10 +30,13 @@ public class DriverSimulator {
 
         for (int i = 1; i < 6; i++) {
             String name = "Driver " + i;
-            Location startingPlace = locations[0];//need to randomize
+            
+            Location startingPlace = locations[(int)(generator.nextDouble()*4)];
+            System.out.println(startingPlace.getName());
             Driver zoom = new Driver(name, startingPlace);
             while (zoom.inHastings() == true) {
-                zoom.chooseDirection(generator.nextDouble(), locations);
+                zoom.chooseDirection(generator.nextDouble(), generator.nextDouble(), locations);
+                
 
             }
         }
@@ -55,11 +59,17 @@ class Driver {
 
     }
 
-    public void chooseDirection(double random, Location[] locations) {
+    public void chooseDirection(double random, double random2, Location[] locations) {
         if (random < 0.5) {
             this.location = locations[this.location.Left()];
+            this.locationName = this.location.getName();
         } else {
             this.location = locations[this.location.Right()];
+            this.locationName = this.location.getName();
+        }
+        if (random2 < 0.9){
+            this.inHastings = false;
+            this.locationName = "Outside City";
         }
     }
 
