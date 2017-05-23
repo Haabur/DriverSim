@@ -36,6 +36,7 @@ public class DriverSimulator {
             Driver zoom = new Driver(name, startingPlace);
             while (zoom.inHastings() == true) {
                 zoom.chooseDirection(generator.nextDouble(), generator.nextDouble(), locations);
+                System.out.println(zoom.locationName());
                 
 
             }
@@ -67,10 +68,14 @@ class Driver {
             this.location = locations[this.location.Right()];
             this.locationName = this.location.getName();
         }
-        if (random2 < 0.9){
+        if (random2 > 0.9){
             this.inHastings = false;
             this.locationName = "Outside City";
         }
+    }
+    
+    public String locationName(){
+        return this.locationName;
     }
 
     public boolean inHastings() {
