@@ -32,11 +32,11 @@ public class DriverSimulator {
             String name = "Driver " + i;
             
             Location startingPlace = locations[(int)(generator.nextDouble()*4)];
-            System.out.println(startingPlace.getName());
+            System.out.println(name + " has started in " + startingPlace.getName());
             Driver zoom = new Driver(name, startingPlace);
             while (zoom.inHastings() == true) {
                 zoom.chooseDirection(generator.nextDouble(), generator.nextDouble(), locations);
-                System.out.println(zoom.locationName());
+                System.out.println(name + " is in " + zoom.locationName());
                 
 
             }
